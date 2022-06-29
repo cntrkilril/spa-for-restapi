@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-      <>
+      <div className="flex flex-col">
           <Header/>
           <div className="mainBlock">
               <Routes>
@@ -36,9 +36,9 @@ function App() {
                   <Route exact path="/post" element={<PostPage/>}/>
                   <Route exact path="/admin" element={<AdminPage/>}/>
               </Routes>
-              <Footer />
           </div>
-      </>
+          <Footer />
+      </div>
   );
 }
 

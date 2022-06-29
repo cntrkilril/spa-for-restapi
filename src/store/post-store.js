@@ -9,11 +9,17 @@ class PostStore {
     isFetch = false
     postList = []
 
-    sortedPostList = []
+    next = null
+    pred = null
 
-    getListPost = async () => {
-        const postReq = await fetch('http://localhost:8000/api/post/').then((r) => {return r.json()})
+    current_url = 'http://localhost:8000/api/post/'
+
+    getListPost = async (url = 'http://localhost:8000/api/post/') => {
+        const postReq = await fetch(url).then((r) => {return r.json()})
         this.postList = postReq.results
+        this.next = postReq.next
+        this.pred = postReq.previous
+        this.current_url = url
         this.isFetch = true
         console.log(postReq)
     }
@@ -26,7 +32,7 @@ class PostStore {
             },
             body: JSON.stringify(data),
         }).then((r) => {return r.json()})
-        await this.getListPost()
+        await this.getListPost(this.current_url)
     }
 
     updatePost = async (data, id) => {
@@ -39,7 +45,7 @@ class PostStore {
             },
             body: JSON.stringify(data),
         }).then((r) => {return r}).then((r) => {return r.json()})
-        await this.getListPost()
+        await this.getListPost(this.current_url)
     }
 
     deletePost = async (id) => {
@@ -49,7 +55,7 @@ class PostStore {
                 'Accept': '*/*'
             },
         })
-        await this.getListPost()
+        await this.getListPost(this.current_url)
     }
 
 }

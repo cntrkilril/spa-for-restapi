@@ -2,16 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <nav className="col-start-2 col-end-3">
-            <ul className="pagination justify-content-center">
-                <li className="page-item disabled">
-                    <a className="page-link">Предыдущая</a>
-                </li>
-                <li className="page-item">
-                    <a className="page-link" href="#">Следующая</a>
-                </li>
-            </ul>
-        </nav>
+        <div className="col-start-1 col-end-3 bg-slate-300 p-2 grid justify-center items-center navbar fixed-bottom">
+            <p className="m-0">krlbook 2022</p>
+        </div>
     );
 };
 
