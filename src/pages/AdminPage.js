@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {observer} from "mobx-react";
 import adminStore from "../store/admin-store";
 import AdminCard from "../components/AdminCard";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const AdminPage = observer( () => {
 
@@ -17,16 +18,20 @@ const AdminPage = observer( () => {
             {
                 adminStore.isFetch
                     ?
-                    <div className="">
-                        <p className="">Админов: {adminStore.adminList.length}</p>
-                        <div className="flex gap-4 flex-wrap">
-                            {
-                                adminStore.adminList.map((item) =>
-                                    <AdminCard item={item} key={item.id}/>
-                                )
-                            }
-                        </div>
-                    </div>
+                        adminStore.adminList
+                        ?
+                            <div className="">
+                                <p className="">Админов: {adminStore.adminList.length}</p>
+                                <div className="flex gap-4 flex-wrap">
+                                    {
+                                        adminStore.adminList.map((item) =>
+                                            <AdminCard item={item} key={item.id}/>
+                                        )
+                                    }
+                                </div>
+                            </div>
+                        :
+                            <ErrorBoundary/>
                     :
                     <div className="">
                         <p className="">Загрузка</p>

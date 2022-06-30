@@ -10,7 +10,7 @@ const MainPage = () => {
                 Разработчик - Кирилл Шальнов 201-321
             </h5>
             <p className="text-center">
-                В разработке использовался React JS, Mobx, Bootstrap и Tailwind CSS
+                В разработке использовался React JS, React Router, Mobx, Bootstrap и Tailwind CSS
             </p>
         </div>
     );

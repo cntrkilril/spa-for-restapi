@@ -10,9 +10,9 @@ class AdminStore {
     adminList = []
 
     getListAdmin = async () => {
-        const adminReq = await fetch('http://localhost:8000/api/profile/').then((r) => {return r.json()})
+        const adminReq = await fetch('http://rest-api-framework.std-1366.ist.mospolytech.ru/api/profile/').then((r) => {return r.json()}).catch(err => this.adminList = 0)
         this.adminList = adminReq.results
-        this.isFetch = true
+        setTimeout(() => this.isFetch = true, 500)
     }
 
 }
