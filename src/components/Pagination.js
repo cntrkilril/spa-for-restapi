@@ -6,10 +6,10 @@ const Pagination  = observer( ({object, fetchNext, fetchPred}) => {
         <nav className="col-start-2 col-end-3 mt-3">
             <ul className="pagination justify-content-center">
                 <li className="page-item">
-                    <button className="btn btn-outline-primary mr-2" disabled={!object.pred} onClick={(e) => fetchPred(e)}>Предыдущая</button>
+                    <button className="btn btn-outline-primary mr-2" disabled={!object.pred} onClick={fetchPred}>Предыдущая</button>
                 </li>
                 <li className="page-item">
-                    <button className="btn btn-outline-primary ml-2" disabled={!object.next} onClick={(e) => fetchNext(e)}>Следующая</button>
+                    <button className="btn btn-outline-primary ml-2" disabled={!object.next} onClick={fetchNext}>Следующая</button>
                 </li>
             </ul>
         </nav>

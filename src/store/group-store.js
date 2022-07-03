@@ -21,7 +21,7 @@ class GroupStore {
     }
 
     sortByAlph = () => {
-        this.groupList.sort((a, b) => a.group_name >= b.group_name ? 1 : -1)
+        this.groupList.sort((a, b) => a.group_name.toLowerCase() >= b.group_name.toLowerCase() ? 1 : -1)
     }
 
     filterByLikes = () => {

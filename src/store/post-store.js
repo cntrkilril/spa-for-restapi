@@ -15,14 +15,12 @@ class PostStore {
     current_url = 'http://rest-api-framework.std-1366.ist.mospolytech.ru/api/post/'
 
     getListPost = async (url = 'http://rest-api-framework.std-1366.ist.mospolytech.ru/api/post/') => {
-        url = url.replace('http://127.0.0.1:8000','http://rest-api-framework.std-1366.ist.mospolytech.ru')
-        console.log(url)
         const postReq = await fetch(url).then((r) => {return r.json()}).catch(err => this.postList = 0)
         this.postList = postReq.results
         this.next = postReq.next
         this.pred = postReq.previous
         this.current_url = url
-        setTimeout(() => this.isFetch = true, 500)
+        setTimeout(() => this.isFetch = true, 250)
         console.log(postReq)
     }
 
