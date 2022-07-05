@@ -1,7 +1,8 @@
 import React from 'react';
 import avatar from '../assets/avatar.png'
 
-const AdminCard = ({item, key}) => {
+const AdminCard = ({item}) => {
+
     return (
         <div className="card w-1/3 max-w-xs">
             <img src={avatar} className="card-img-top" alt="..." />

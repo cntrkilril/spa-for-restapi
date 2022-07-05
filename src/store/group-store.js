@@ -1,4 +1,5 @@
 import {makeAutoObservable} from 'mobx';
+import URL_PROXY from "./env";
 
 class GroupStore {
 
@@ -10,7 +11,7 @@ class GroupStore {
     groupList = []
 
     getListGroup = async () => {
-        const groupReq = await fetch('http://rest-api-framework.std-1366.ist.mospolytech.ru/api/group/').then((r) => {return r.json()}).catch(err => this.groupList = 0)
+        const groupReq = await fetch(URL_PROXY + 'http://rest-api-framework.std-1366.ist.mospolytech.ru/api/group/').then((r) => {return r.json()}).catch(err => this.groupList = 0)
         this.groupList = groupReq.results
         console.log(this.groupList)
         setTimeout(() => this.isFetch = true, 500)
